@@ -1,4 +1,4 @@
-package com.swagger.example.entity;
+package com.news.beacon.entity;
 
 import java.time.LocalDateTime;
 

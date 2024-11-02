@@ -1,6 +1,6 @@
-package com.swagger.example.clients;
+package com.news.beacon.clients;
 
-import com.swagger.example.entity.NewsApiResponse;
+import com.news.beacon.entity.NewsApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;

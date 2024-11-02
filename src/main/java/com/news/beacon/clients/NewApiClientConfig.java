@@ -1,4 +1,4 @@
-package com.swagger.example.clients;
+package com.news.beacon.clients;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

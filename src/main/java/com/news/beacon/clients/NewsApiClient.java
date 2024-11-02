@@ -1,6 +1,6 @@
-package com.swagger.example.clients;
+package com.news.beacon.clients;
 
-import com.swagger.example.entity.NewsApiResponse;
+import com.news.beacon.entity.NewsApiResponse;
 
 public interface NewsApiClient {
 

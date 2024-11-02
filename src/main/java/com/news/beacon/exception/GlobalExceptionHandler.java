@@ -1,6 +1,6 @@
-package com.swagger.example.exception;
+package com.news.beacon.exception;
 
-import com.swagger.example.entity.ErrorResponse;
+import com.news.beacon.entity.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

@@ -1,4 +1,4 @@
-package com.swagger.example;
+package com.news.beacon;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,13 +1,13 @@
-package com.swagger.example;
+package com.news.beacon;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JavaSwaggerExampleApplication {
+public class NewsBeaconApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(JavaSwaggerExampleApplication.class, args);
+        SpringApplication.run(NewsBeaconApplication.class, args);
     }
 
 }

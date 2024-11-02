@@ -7,4 +7,4 @@ News service that offers quick, concise summaries of major headlines, perfect fo
 ./gradlew clean build
 
 ## start service local
-simple run the main class `de.europace.doc.beacon.Application`
+simple run the main class `com.news.beacon.Application`

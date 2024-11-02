@@ -1,6 +1,6 @@
-package com.swagger.example.service;
+package com.news.beacon.service;
 
-import com.swagger.example.clients.NewsApiClient;
+import com.news.beacon.clients.NewsApiClient;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

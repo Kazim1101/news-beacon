@@ -1,4 +1,4 @@
-package com.swagger.example.entity;
+package com.news.beacon.entity;
 
 import lombok.Getter;
 import lombok.Setter;
