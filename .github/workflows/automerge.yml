@@ -1,0 +1,23 @@
+name: automerge
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+  schedule:
+    - cron: "0 2 * * 1"  # Weekly schedule for checking Dependabot PRs
+  workflow_dispatch:  # Allow manual triggering of this workflow
+
+jobs:
+  auto-merge:
+    if: github.actor == 'dependabot[bot]' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions: # Grant permission to modify pull requests
+      pull-requests: write
+      contents: write
+    steps:
+      - id: automerge
+        name: automerge
+        uses: "pascalgn/automerge-action@v0.16.4"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
