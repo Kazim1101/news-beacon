@@ -16,8 +16,18 @@ jobs:
       pull-requests: write
       contents: write
     steps:
-      - id: automerge
-        name: automerge
-        uses: "pascalgn/automerge-action@v0.16.4"
+      - name: Checkout Repository
+        uses: actions/checkout@v3  # Ensure the repository is checked out
+
+      - name: Automate Merge
+        id: automerge
+        uses: pascalgn/automerge-action@v0.16.4
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        with:
+          merge_method: "squash"  # Optional: Specify merge method (merge, squash, or rebase)
+
+      - name: Check Merge Result
+        run: |
+          echo "Automerge output: ${{ steps.automerge.outputs.result }}"
+          echo "Automerge action status: ${{ steps.automerge.outcome }}"
