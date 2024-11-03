@@ -13,7 +13,7 @@ updates:
     schedule:
       interval: "weekly"
 
-# Additional configuration options
-commit-message:
-    prefix: "deps"                     # Prefix for commit messages
-    include: "scope"                   # Include the scope (e.g., dependency name) in commit messages
+    # Additional configuration options
+    commit-message:
+      prefix: "deps"                   # Prefix for commit messages
+      include: "scope"                 # Include the scope (e.g., dependency name) in commit messages
