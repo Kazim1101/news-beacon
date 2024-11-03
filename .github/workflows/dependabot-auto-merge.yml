@@ -1,0 +1,22 @@
+name: Auto-merge Dependabot updates
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+  schedule:
+    - cron: "0 2 * * 1"  # Weekly schedule for checking Dependabot PRs
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      - name: Approve and merge Dependabot PRs
+        uses: actions-ecosystem/action-auto-merge@v1
+        with:
+          merge_method: "squash"  # Use "merge" or "rebase" as preferred
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
