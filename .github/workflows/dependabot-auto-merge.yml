@@ -6,6 +6,7 @@ on:
       - synchronize
   schedule:
     - cron: "0 2 * * 1"  # Weekly schedule for checking Dependabot PRs
+  workflow_dispatch:  # Allow manual triggering of this workflow
 
 jobs:
   auto-merge:
