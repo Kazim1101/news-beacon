@@ -17,12 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]' || github.event_name == 'workflow_dispatch'
     steps:
-      - name: Check out the repository
-        uses: actions/checkout@v3  # Use the latest version of checkout action
-
-      - name: Approve and merge Dependabot PRs
-        uses: peter-evans/merge-pull-request@v4  # Use the latest version
-        with:
-          github_token: "${{ secrets.GITHUB_TOKEN }}"
-          pull_request_number: ${{ github.event.pull_request.number }}  # Specify the pull request number
-          merge_method: "squash"  # Use "merge" or "rebase" as preferred
+      - name: Enable auto-merge for Dependabot PRs
+        run: gh pr merge --auto --merge "$PR_URL" # Use Github CLI to merge automatically the PR
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
