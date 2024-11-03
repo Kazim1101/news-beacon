@@ -1,0 +1,30 @@
+swagger: '2.0'
+info:
+  version: "1.0.0"
+  title: "News Beacon API"
+  description: "API for the News Beacon service"
+host: "localhost:8080"
+basePath: "/"
+schemes:
+  - "http"
+paths:
+  /news/headlines:
+    get:
+      summary: "Get headlines by country code"
+      parameters:
+        - name: "country"
+          in: "query"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            type: "array"
+            items:
+              type: "object"
+              properties:
+                title:
+                  type: "string"
+                description:
+                  type: "string"

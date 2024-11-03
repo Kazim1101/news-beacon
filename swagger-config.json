@@ -1,0 +1,6 @@
+{
+  "modelPackage" : "com.news.beacon.entity",
+  "apiPackage"   : "com.news.beacon.controller",
+  "invokerPackage" : "com.news.beacon",
+  "dateLibrary" : "java8"
+}
