@@ -4,7 +4,7 @@ updates:
   - package-ecosystem: "gradle"      # Dependabot supports Gradle
     directory: "/"                   # Root directory of the project
     schedule:
-      interval: "weekly"             # Check for updates weekly (can also be daily or monthly)
+      interval: "daily"
     open-pull-requests-limit: 10     # Limit the number of open PRs to 10
 
 #  # 2. Update GitHub Actions dependencies (optional)
