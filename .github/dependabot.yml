@@ -1,0 +1,19 @@
+version: 2
+updates:
+  # 1. Update Gradle dependencies
+  - package-ecosystem: "gradle"      # Dependabot supports Gradle
+    directory: "/"                   # Root directory of the project
+    schedule:
+      interval: "weekly"             # Check for updates weekly (can also be daily or monthly)
+    open-pull-requests-limit: 10     # Limit the number of open PRs to 10
+
+  # 2. Update GitHub Actions dependencies (optional)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+# Additional configuration options
+commit-message:
+    prefix: "deps"                     # Prefix for commit messages
+    include: "scope"                   # Include the scope (e.g., dependency name) in commit messages
