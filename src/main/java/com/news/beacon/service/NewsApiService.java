@@ -3,6 +3,7 @@ package com.news.beacon.service;
 import com.news.beacon.clients.NewsApiClient;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -16,13 +17,19 @@ public class NewsApiService {
         this.newsApiClient = newsApiClient;
     }
 
-    public List<Map<String, String>> getHeadlinesByCountryCode(String countryCode) {
+    public List<Map<String, String>> getHeadlinesByCountryCode(String countryCode, String category, String pageSize, String page) {
 
-        String validCountryCode = Optional.ofNullable(countryCode)
+        Map<String, String> params = new HashMap<>();
+        params.put("country", countryCode);
+        params.put("category", category);
+        params.put("pageSize", pageSize);
+        params.put("page", page);
+
+        Optional.ofNullable(countryCode)
                 .filter(code -> code.length() == 2)
                 .map(String::toUpperCase)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid country code. Must be a non-empty, 2-character string. "));
 
-        return newsApiClient.getTopHeadLinesByCountryCode(validCountryCode).filterNewsHeadlines();
+        return newsApiClient.getTopHeadLines(params).filterNewsHeadlines();
     }
 }

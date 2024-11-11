@@ -38,7 +38,7 @@ class NewsApiControllerTest extends RestServerMockTest{
     @Test
     void getHeadlinesByCountryCode() throws Exception {
 
-        when(newsApiService.getHeadlinesByCountryCode("us")).thenReturn(headlinesResponse);
+        when(newsApiService.getHeadlinesByCountryCode("us", null, null, null)).thenReturn(headlinesResponse);
 
         mockMvc.perform(get("/news/headlines")
                 .param("country", "us")

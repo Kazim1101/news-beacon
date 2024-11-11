@@ -21,8 +21,13 @@ public class NewsApiController {
     private final NewsApiService newsApiService;
 
     @GetMapping(value = "/headlines", produces = {"application/json"})
-    public ResponseEntity<List<Map<String, String>>> getHeadlinesByCountryCode(@RequestParam("country") String countryCode) {
-        return ResponseEntity.ok(newsApiService.getHeadlinesByCountryCode(countryCode));
+    public ResponseEntity<List<Map<String, String>>> getHeadlinesByCountryCode(
+            @RequestParam(value = "country", required = false) String countryCode,
+            @RequestParam(value = "category", required = false) String category,
+            @RequestParam(value = "pageSize", required = false) String pageSize,
+            @RequestParam(value = "page", required = false) String page
+    ) {
+        return ResponseEntity.ok(newsApiService.getHeadlinesByCountryCode(countryCode, category, pageSize, page));
     }
 
 
