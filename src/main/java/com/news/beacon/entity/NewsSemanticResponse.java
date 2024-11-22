@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class NewsApiResponseWithCategory{
+public class NewsSemanticResponse {
     private String newsId;
     private String category;
     private String companyName;

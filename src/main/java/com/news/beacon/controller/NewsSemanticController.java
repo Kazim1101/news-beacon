@@ -1,6 +1,6 @@
 package com.news.beacon.controller;
 
-import com.news.beacon.entity.NewsApiResponseWithCategory;
+import com.news.beacon.entity.NewsSemanticResponse;
 import com.news.beacon.entity.NewsSemanticRequest;
 import com.news.beacon.service.NewsSemanticService;
 import lombok.AllArgsConstructor;
@@ -20,7 +20,7 @@ public class NewsSemanticController {
     private final NewsSemanticService newsSemanticService;
 
     @PostMapping(value = "/headlines", produces = {"application/json"})
-    public ResponseEntity<List<NewsApiResponseWithCategory>> getHeadlinesByCountryCode(@RequestBody List<NewsSemanticRequest> newsSemanticRequest) {
+    public ResponseEntity<List<NewsSemanticResponse>> getHeadlinesByCountryCode(@RequestBody List<NewsSemanticRequest> newsSemanticRequest) {
         return ResponseEntity.ok(newsSemanticService.getSemanticAnalysis(newsSemanticRequest));
     }
 

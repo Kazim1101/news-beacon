@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.news.beacon.clients.GeminiClient;
 import com.news.beacon.entity.GeminiResponse;
-import com.news.beacon.entity.NewsApiResponseWithCategory;
+import com.news.beacon.entity.NewsSemanticResponse;
 import com.news.beacon.entity.NewsSemanticRequest;
 import org.springframework.stereotype.Service;
 
@@ -21,18 +21,18 @@ public class NewsSemanticService {
         this.geminiClient = geminiClient;
     }
 
-    public List<NewsApiResponseWithCategory> getSemanticAnalysis(List<NewsSemanticRequest> news) {
+    public List<NewsSemanticResponse> getSemanticAnalysis(List<NewsSemanticRequest> news) {
 
         String prompt = preparePrompt(news);
         GeminiResponse geminiResponse = geminiClient.generateContent(prompt);
         String result = cleanJson(geminiResponse.getCandidates().get(0).getContent().getParts().get(0).getText());
 
-        List<NewsApiResponseWithCategory> categorizedNews = null;
+        List<NewsSemanticResponse> categorizedNews = null;
         if (isValidJson(result)) {
             ObjectMapper objectMapper = new ObjectMapper();
 
             try {
-                categorizedNews = objectMapper.readValue(result, new TypeReference<List<NewsApiResponseWithCategory>>() {});
+                categorizedNews = objectMapper.readValue(result, new TypeReference<List<NewsSemanticResponse>>() {});
             } catch (JsonProcessingException e) {
                 throw new RuntimeException(e);
             }
