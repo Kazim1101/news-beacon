@@ -6,9 +6,9 @@ import org.springframework.web.client.RestTemplate;
 
 
 @Configuration
-public class NewApiClientConfig {
+public class Config {
 
-    @Bean("news-resttemplate")
+    @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
